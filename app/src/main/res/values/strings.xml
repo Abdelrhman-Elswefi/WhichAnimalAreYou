@@ -1,3 +1,15 @@
 <resources>
     <string name="app_name">Which Animal Are You?</string>
+    <string-array name="spinnerChoices">
+        <item>Totally Agree</item>
+        <item>Agree</item>
+        <item>Indifferent</item>
+        <item>Disagree</item>
+        <item>Totally Disagree</item>
+    </string-array>
+    <string name="statement1">I am lazy.</string>
+    <string name="statement2">I like to have fun.</string>
+    <string name="statement3">I am very agile.</string>
+    <string name="statement4">I like the dark.</string>
+    <string name="statement5">I am afraid of heights.</string>
 </resources>
