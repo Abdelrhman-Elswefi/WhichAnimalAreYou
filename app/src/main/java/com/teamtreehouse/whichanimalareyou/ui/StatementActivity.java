@@ -1,7 +1,9 @@
 package com.teamtreehouse.whichanimalareyou.ui;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
@@ -55,5 +57,34 @@ public class StatementActivity extends AppCompatActivity {
         mSpinner3.setAdapter(adapter);
         mSpinner4.setAdapter(adapter);
         mSpinner5.setAdapter(adapter);
+
+        mFinishButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String[] answers = new String[5];
+                answers[0] = mSpinner1.getSelectedItem().toString();
+                answers[1] = mSpinner2.getSelectedItem().toString();
+                answers[2] = mSpinner3.getSelectedItem().toString();
+                answers[3] = mSpinner4.getSelectedItem().toString();
+                answers[4] = mSpinner5.getSelectedItem().toString();
+                getResult(answers);
+            }
+        });
+    }
+
+    public void getResult(String[] answers) {
+        Intent intent = new Intent(this, ResultActivity.class);
+        intent.putExtra("answers", answers);
+        startActivity(intent);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        mSpinner1.setSelection(0);
+        mSpinner2.setSelection(0);
+        mSpinner3.setSelection(0);
+        mSpinner4.setSelection(0);
+        mSpinner5.setSelection(0);
     }
 }

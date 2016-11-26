@@ -7,9 +7,10 @@
         <item>Disagree</item>
         <item>Totally Disagree</item>
     </string-array>
-    <string name="statement1">I am lazy.</string>
-    <string name="statement2">I like to have fun.</string>
-    <string name="statement3">I am very agile.</string>
-    <string name="statement4">I like the dark.</string>
-    <string name="statement5">I am afraid of heights.</string>
+    <string name="statement1">I am charismatic.</string>
+    <string name="statement2">I am trustworthy and honest.</string>
+    <string name="statement3">I am mischievous.</string>
+    <string name="statement4">I am shy and/or solitary.</string>
+    <string name="statement5">I am very discerning.</string>
+    <string name="returnButton">Play Again!</string>
 </resources>
