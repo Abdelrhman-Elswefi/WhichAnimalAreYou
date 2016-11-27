@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.teamtreehouse.whichanimalareyou.R;
@@ -17,7 +18,9 @@ public class ResultActivity extends AppCompatActivity {
     private String[] mAnswers;
     private Result mResult = new Result();
     private String mImageTag;
-    private Button mReturnButton;
+    Button mReturnButton;
+    private TextView mCaptionTextView;
+    private String mCaption;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,17 +29,15 @@ public class ResultActivity extends AppCompatActivity {
 
         mResultImageView = (ImageView) findViewById(R.id.resultImageView);
         mReturnButton = (Button) findViewById(R.id.returnButton);
+        mCaptionTextView = (TextView) findViewById(R.id.captionTextView);
 
         Intent intent = getIntent();
         mAnswers = intent.getStringArrayExtra("answers");
+        mCaption = intent.getStringExtra("caption");
 
-        getResult();
+        getResults();
 
-        Drawable drawable = getResources().getDrawable(mResult.getImageId());
-        mResultImageView.setImageDrawable(drawable);
-
-        String animal = drawable.toString();
-        mImageTag = mResultImageView.getTag().toString();
+        setResults();
 
         Toast.makeText(this, "You're a " + mImageTag + "!", Toast.LENGTH_SHORT).show();
 
@@ -48,7 +49,7 @@ public class ResultActivity extends AppCompatActivity {
         });
     }
 
-    public void getResult() {
+    public void getResults() {
         if (mAnswers[0].equals("Totally Agree") && !mAnswers[2].equals("Totally Agree")) {
             mResult.setImageId(R.drawable.dolphin);
             mResultImageView.setTag("dolphin");
@@ -69,5 +70,40 @@ public class ResultActivity extends AppCompatActivity {
             mResult.setImageId(R.drawable.tiger);
             mResultImageView.setTag("tiger");
         }
+        if (!mAnswers[0].equals("Totally Agree") &&
+                !mAnswers[1].equals("Totally Agree") &&
+                !mAnswers[2].equals("Totally Agree") &&
+                !mAnswers[3].equals("Totally Agree") &&
+                !mAnswers[4].equals("Totally Agree")) {
+            if (mAnswers[0].equals("Agree")) {
+                mResult.setImageId(R.drawable.dolphin);
+                mResultImageView.setTag("dolphin");
+            }
+            if (mAnswers[1].equals("Agree")) {
+                mResult.setImageId(R.drawable.elephant);
+                mResultImageView.setTag("elephant");
+            }
+            if (mAnswers[2].equals("Agree")) {
+                mResult.setImageId(R.drawable.monkey);
+                mResultImageView.setTag("monkey");
+            }
+            if (mAnswers[3].equals("Agree")) {
+                mResult.setImageId(R.drawable.redpanda);
+                mResultImageView.setTag("red panda");
+            }
+            if (mAnswers[4].equals("Agree")) {
+                mResult.setImageId(R.drawable.tiger);
+                mResultImageView.setTag("tiger");
+            }
+        }
+        mResult.setCaption(mCaption);
+    }
+
+    public void setResults() {
+        Drawable drawable = getResources().getDrawable(mResult.getImageId());
+        mResultImageView.setImageDrawable(drawable);
+        mCaptionTextView.setText(mResult.getCaption());
+
+        mImageTag = mResultImageView.getTag().toString();
     }
 }

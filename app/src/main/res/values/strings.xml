@@ -13,4 +13,5 @@
     <string name="statement4">I am shy and/or solitary.</string>
     <string name="statement5">I am very discerning.</string>
     <string name="returnButton">Play Again!</string>
+    <string name="captionEditTextHint">Please enter a caption</string>
 </resources>

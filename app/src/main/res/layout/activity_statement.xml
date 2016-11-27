@@ -50,20 +50,6 @@
         android:text="TextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/statementTextView3"
-        android:textAlignment="center"
-        android:textSize="18sp"
-        android:textColor="@android:color/black"
-        android:padding="5dp"
-        android:layout_centerVertical="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:background="@android:color/holo_blue_light"/>
-
-    <TextView
-        android:text="TextView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         android:id="@+id/statementTextView4"
         android:textAlignment="center"
         android:textSize="18sp"
@@ -106,12 +92,37 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"/>
 
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:layout_above="@+id/finishButton"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/captionEditText"
+        android:textSize="16sp"
+        android:hint="@string/captionEditTextHint"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/statementTextView1"
+        android:textAlignment="center"
+        android:text="Statement"
+        android:textSize="18sp"
+        android:textColor="@android:color/black"
+        android:padding="5dp"
+        android:background="@android:color/holo_blue_light"
+        android:layout_below="@+id/titleTextView"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"/>
+
     <Spinner
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/spinner2"
+        android:id="@+id/spinner1"
         android:padding="5dp"
-        android:layout_above="@+id/statementTextView3"
+        android:layout_below="@+id/statementTextView1"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"/>
 
@@ -124,31 +135,31 @@
         android:textSize="18sp"
         android:padding="5dp"
         android:textColor="@android:color/black"
-        android:layout_above="@+id/spinner2"
+        android:background="@android:color/holo_blue_light"
+        android:layout_below="@+id/spinner1"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:background="@android:color/holo_blue_light"/>
+        android:layout_alignParentStart="true"/>
 
     <Spinner
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/spinner1"
+        android:id="@+id/spinner2"
         android:padding="5dp"
-        android:layout_above="@+id/statementTextView2"
+        android:layout_below="@+id/statementTextView2"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"/>
 
     <TextView
+        android:text="TextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/statementTextView1"
+        android:id="@+id/statementTextView3"
         android:textAlignment="center"
-        android:text="Statement"
         android:textSize="18sp"
         android:textColor="@android:color/black"
         android:padding="5dp"
-        android:layout_above="@+id/spinner1"
+        android:background="@android:color/holo_blue_light"
+        android:layout_below="@+id/spinner2"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:background="@android:color/holo_blue_light"/>
+        android:layout_alignParentStart="true"/>
 </RelativeLayout>

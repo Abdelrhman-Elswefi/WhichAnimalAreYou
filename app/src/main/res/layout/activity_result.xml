@@ -28,4 +28,16 @@
         android:textColor="@android:color/white"
         android:textSize="18sp"/>
 
+    <TextView
+        android:text="TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/returnButton"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="75dp"
+        android:id="@+id/captionTextView"
+        android:textSize="16sp"
+        android:textColor="@android:color/black"
+        android:background="@android:color/white"/>
+
 </RelativeLayout>
