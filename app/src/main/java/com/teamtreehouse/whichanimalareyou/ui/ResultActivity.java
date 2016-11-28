@@ -21,6 +21,7 @@ public class ResultActivity extends AppCompatActivity {
     Button mReturnButton;
     private TextView mCaptionTextView;
     private String mCaption;
+    private int mPoints;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,50 +51,39 @@ public class ResultActivity extends AppCompatActivity {
     }
 
     public void getResults() {
-        if (mAnswers[0].equals("Totally Agree") && !mAnswers[2].equals("Totally Agree")) {
-            mResult.setImageId(R.drawable.dolphin);
-            mResultImageView.setTag("dolphin");
-        }
-        if (mAnswers[1].equals("Totally Agree")) {
-            mResult.setImageId(R.drawable.elephant);
-            mResultImageView.setTag("elephant");
-        }
-        if (mAnswers[2].equals("Totally Agree") && !mAnswers[0].equals("Totally Agree")) {
-            mResult.setImageId(R.drawable.monkey);
-            mResultImageView.setTag("monkey");
-        }
-        if (mAnswers[3].equals("Totally Agree")) {
-            mResult.setImageId(R.drawable.redpanda);
-            mResultImageView.setTag("red panda");
-        }
-        if (mAnswers[4].equals("Totally Agree")) {
-            mResult.setImageId(R.drawable.tiger);
-            mResultImageView.setTag("tiger");
-        }
-        if (!mAnswers[0].equals("Totally Agree") &&
-                !mAnswers[1].equals("Totally Agree") &&
-                !mAnswers[2].equals("Totally Agree") &&
-                !mAnswers[3].equals("Totally Agree") &&
-                !mAnswers[4].equals("Totally Agree")) {
-            if (mAnswers[0].equals("Agree")) {
-                mResult.setImageId(R.drawable.dolphin);
-                mResultImageView.setTag("dolphin");
+        for (String answer : mAnswers) {
+            mPoints = 0;
+            switch (answer) {
+                case "Totally Agree":
+                    mPoints++;
+                case "Agree":
+                    mPoints += 2;
+                case "Indifferent":
+                    mPoints += 3;
+                case "Disagree":
+                    mPoints += 4;
+                case "Totally Disagree":
+                    mPoints += 5;
             }
-            if (mAnswers[1].equals("Agree")) {
-                mResult.setImageId(R.drawable.elephant);
-                mResultImageView.setTag("elephant");
+            if (mPoints > 4 && mPoints < 9) {
+                mResult.setImageId(R.drawable.tiger);
+                mResultImageView.setTag("tiger");
             }
-            if (mAnswers[2].equals("Agree")) {
-                mResult.setImageId(R.drawable.monkey);
-                mResultImageView.setTag("monkey");
-            }
-            if (mAnswers[3].equals("Agree")) {
+            if (mPoints > 8 && mPoints < 13) {
                 mResult.setImageId(R.drawable.redpanda);
                 mResultImageView.setTag("red panda");
             }
-            if (mAnswers[4].equals("Agree")) {
-                mResult.setImageId(R.drawable.tiger);
-                mResultImageView.setTag("tiger");
+            if (mPoints > 12 && mPoints < 17) {
+                mResult.setImageId(R.drawable.monkey);
+                mResultImageView.setTag("monkey");
+            }
+            if (mPoints > 16 && mPoints < 21) {
+                mResult.setImageId(R.drawable.elephant);
+                mResultImageView.setTag("elephant");
+            }
+            if (mPoints > 20 && mPoints < 26) {
+                mResult.setImageId(R.drawable.dolphin);
+                mResultImageView.setTag("dolphin");
             }
         }
         mResult.setCaption(mCaption);
