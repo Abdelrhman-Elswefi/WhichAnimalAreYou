@@ -21,7 +21,7 @@ public class ResultActivity extends AppCompatActivity {
     Button mReturnButton;
     private TextView mCaptionTextView;
     private String mCaption;
-    private int mPoints;
+    int mPoints;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

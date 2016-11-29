@@ -6,7 +6,7 @@ public class Result {
     private int mImageId;
 
     public String getCaption() {
-        return mCaption;
+        return "'" + mCaption + "'";
     }
 
     public void setCaption(String caption) {
